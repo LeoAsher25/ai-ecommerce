@@ -1,0 +1,365 @@
+[{
+  "_id": {
+    "$oid": "67d3ca7c2b2c7a8ef970e3c0"
+  },
+  "name": "Xe đạp trẻ em",
+  "status": "ACTIVE",
+  "createdAt": {
+    "$date": "2025-03-14T06:19:40.938Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:19:40.938Z"
+  },
+  "__v": 0,
+  "order": 0,
+  "slug": "xe-dap-tre-em"
+},
+{
+  "_id": {
+    "$oid": "67d3ca852b2c7a8ef970e3c3"
+  },
+  "name": "Xe đạp phổ thông",
+  "status": "ACTIVE",
+  "createdAt": {
+    "$date": "2025-03-14T06:19:49.180Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:19:49.180Z"
+  },
+  "__v": 0,
+  "order": 0,
+  "slug": "xe-dap-pho-thong"
+},
+{
+  "_id": {
+    "$oid": "67d3ca8e2b2c7a8ef970e3c6"
+  },
+  "name": "Xe đạp thể thao",
+  "status": "ACTIVE",
+  "createdAt": {
+    "$date": "2025-03-14T06:19:58.629Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:19:58.629Z"
+  },
+  "__v": 0,
+  "order": 0,
+  "slug": "xe-dap-the-thao"
+},
+{
+  "_id": {
+    "$oid": "67d3ca952b2c7a8ef970e3c9"
+  },
+  "name": "Xe đạp gấp",
+  "status": "ACTIVE",
+  "createdAt": {
+    "$date": "2025-03-14T06:20:05.835Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:20:05.835Z"
+  },
+  "__v": 0,
+  "order": 0,
+  "slug": "xe-dap-gap"
+},
+{
+  "_id": {
+    "$oid": "67d3cb1c47a0b00cce86ae80"
+  },
+  "name": "Phụ tùng - Phụ kiện",
+  "status": "ACTIVE",
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:22:20.174Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:22:20.174Z"
+  },
+  "__v": 0,
+  "slug": "phu-tung-phu-kien"
+},
+{
+  "_id": {
+    "$oid": "67d3cd0847a0b00cce86ae86"
+  },
+  "name": "Xe đạp 12 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca7c2b2c7a8ef970e3c0"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:30:32.270Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:30:32.270Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-12-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd1147a0b00cce86ae89"
+  },
+  "name": "Xe đạp 14 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca7c2b2c7a8ef970e3c0"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:30:41.746Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:30:41.746Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-14-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd1547a0b00cce86ae8c"
+  },
+  "name": "Xe đạp 16 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca7c2b2c7a8ef970e3c0"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:30:45.910Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:30:45.910Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-16-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd1c47a0b00cce86ae8f"
+  },
+  "name": "Xe đạp 18 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca7c2b2c7a8ef970e3c0"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:30:52.162Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:30:52.162Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-18-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd1e47a0b00cce86ae92"
+  },
+  "name": "Xe đạp 20 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca7c2b2c7a8ef970e3c0"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:30:54.924Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:30:54.924Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-20-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd2447a0b00cce86ae95"
+  },
+  "name": "Xe đạp 24 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca7c2b2c7a8ef970e3c0"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:31:00.456Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:31:00.456Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-24-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd4247a0b00cce86ae98"
+  },
+  "name": "Xe đạp nữ",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca852b2c7a8ef970e3c3"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:31:30.343Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:31:30.343Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-nu"
+},
+{
+  "_id": {
+    "$oid": "67d3cd4e47a0b00cce86ae9b"
+  },
+  "name": "Xe đạp đua",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca8e2b2c7a8ef970e3c6"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:31:42.678Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:31:42.678Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-dua"
+},
+{
+  "_id": {
+    "$oid": "67d3cd5747a0b00cce86ae9e"
+  },
+  "name": "Xe đạp địa hình MTB",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca8e2b2c7a8ef970e3c6"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:31:51.556Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:31:51.556Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-dia-hinh-mtb"
+},
+{
+  "_id": {
+    "$oid": "67d3cd6247a0b00cce86aea1"
+  },
+  "name": "Xe đạp đường phố Touring",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca8e2b2c7a8ef970e3c6"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:32:02.036Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:32:02.036Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-duong-pho-touring"
+},
+{
+  "_id": {
+    "$oid": "67d3cd6c47a0b00cce86aea4"
+  },
+  "name": "Xe đạp Fixed Gear",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca8e2b2c7a8ef970e3c6"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:32:12.818Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:32:12.818Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-fixed-gear"
+},
+{
+  "_id": {
+    "$oid": "67d3cd8c47a0b00cce86aea7"
+  },
+  "name": "Xe đạp gấp 16 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca952b2c7a8ef970e3c9"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:32:44.362Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:32:44.362Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-gap-16-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd8f47a0b00cce86aeaa"
+  },
+  "name": "Xe đạp gấp 20 inch",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3ca952b2c7a8ef970e3c9"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:32:47.175Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:32:47.175Z"
+  },
+  "__v": 0,
+  "slug": "xe-dap-gap-20-inch"
+},
+{
+  "_id": {
+    "$oid": "67d3cd9d47a0b00cce86aead"
+  },
+  "name": "Nón bảo hiểm",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3cb1c47a0b00cce86ae80"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:33:01.861Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:33:01.861Z"
+  },
+  "__v": 0,
+  "slug": "non-bao-hiem"
+},
+{
+  "_id": {
+    "$oid": "67d3cda547a0b00cce86aeb0"
+  },
+  "name": "Bơm xe đạo",
+  "status": "ACTIVE",
+  "parentId": {
+    "$oid": "67d3cb1c47a0b00cce86ae80"
+  },
+  "order": 0,
+  "createdAt": {
+    "$date": "2025-03-14T06:33:09.354Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-14T06:33:09.354Z"
+  },
+  "__v": 0,
+  "slug": "bom-xe-dao"
+}]

@@ -1,0 +1,32 @@
+export const APP_ROUTES = {
+  HOME: '/',
+  SHOP: '/cua-hang',
+  SHOP_NO_SIDEBAR: '/cua-hang-khong-co-sidebar',
+  PRODUCT_DETAIL: '/san-pham/:id',
+  getDetailProductPath: (id: string) => `/san-pham/${id}`,
+  CART: '/gio-hang',
+  CHECKOUT: '/thanh-toan',
+  PROFILE: '/tai-khoan-cua-toi',
+  ORDER: '/don-hang-cua-toi',
+  WISHLIST: '/danh-sach-yeu-thich',
+  CONTACT: '/lien-he',
+  ABOUT: '/ve-chung-toi',
+  PRIVACY_POLICY: '/chinh-sach-bao-mat',
+  TERMS_OF_SERVICE: '/dieu-khoan-va-dieu-kien',
+  FAQ: '/cau-hoi-thuong-gap',
+  RETURN_INSTRUCTION: '/doi-tra-san-pham',
+  SHIPPING_INSTRUCTION: '/huong-dan-van-chuyen',
+  PAYMENT_INSTRUCTION: '/huong-dan-thanh-toan',
+
+  LOGIN: '/dang-nhap',
+  REGISTER: '/dang-ky',
+
+  // english
+  SHOP_ENGLISH: '/shop',
+  SHOP_WITH_SIDEBAR_ENGLISH: '/shop-without-sidebar',
+  SHOP_NO_SIDEBAR_ENGLISH: '/shop-without-sidebar',
+  SHOP_DETAIL_ENGLISH: '/shop-details',
+  CART_ENGLISH: '/cart',
+  CHECKOUT_ENGLISH: '/checkout',
+  CONTACT_ENGLISH: '/contact',
+}

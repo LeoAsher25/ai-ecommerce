@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "67d06ca4d600274ebb1ba9df"
+  },
+  "firstName": "First",
+  "lastName": "Last",
+  "email": "leoasher2507@gmail.com",
+  "password": "$2b$10$1QHKZ4OV1qZwTdV7CWUZBeOe8cMUznjnfiGFBNJA9XINXEZgM3L2.",
+  "status": "active",
+  "phoneNumber": "+84912345678",
+  "dob": {
+    "$date": "1999-12-31T17:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-11T17:02:28.372Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-31T18:00:10.527Z"
+  },
+  "__v": 0,
+  "refreshToken": "$2b$10$oYx664LnfFi.2SQX27zFF.lAd7dfnlOPjs8Nca/JRCrvAtYRLxY4i"
+},
+{
+  "_id": {
+    "$oid": "6819a38aaa56f94ca2ef4913"
+  },
+  "firstName": "Super",
+  "lastName": "Admin",
+  "email": "superadmin@gmail.com",
+  "password": "$2b$10$KqurP7xzeyadlSA/SlGZk.2B3YkTBhKhkZd1LJ5RCdkVkOlhRDKZW",
+  "status": "VERIFIED",
+  "phoneNumber": "+84912345678",
+  "dob": {
+    "$date": "1999-12-31T17:00:00.000Z"
+  },
+  "role": "ADMIN",
+  "createdAt": {
+    "$date": "2025-05-06T05:52:10.185Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-06T08:04:06.190Z"
+  },
+  "__v": 0,
+  "refreshToken": "$2b$10$H4B2yTMWOb95KWxmGht8y.who66mq/2ULbhlFiRBPXSOm9BJY/AeW"
+}]

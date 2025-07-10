@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:tailwindcss/recommended", "next/core-web-vitals", "next/typescript"
+  ],
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "warn"
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn"],
+      "config": "tailwind.config.js"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+stages:
+  - build
+  - deploy
+
+build_staging:
+  stage: build
+  when: on_success
+  tags:
+    - sli
+  environment:
+    name: staging
+  services:
+    - docker
+  before_script:
+    - docker --version
+  script:
+    - docker login $REGISTRY_URL -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+    - git clone https://oauth2:$RESOURCE_REPO_TOKEN@$RESOURCE_REPO resource
+    - cp resource/review-cosmetic-web-admin/env-staging.env .env
+    - export BUILD_ID=$CI_PIPELINE_ID
+    - docker build --no-cache -t $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID -f ./Dockerfile .
+    - docker tag $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID $REGISTRY_URL/$IMAGE_NAME:staging
+    - docker push $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID
+    - docker push $REGISTRY_URL/$IMAGE_NAME:staging
+    - docker rmi $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID $REGISTRY_URL/$IMAGE_NAME:staging
+  only:
+    - release
+
+deploy_staging:
+  stage: deploy
+  when: on_success
+  environment:
+    name: staging
+  needs:
+    - build_staging
+  tags:
+    - sli
+  services:
+    - docker
+    - sshd
+  before_script:
+    - docker --version
+    - ssh -V
+  script:
+    - echo "${SERVER_KEY}" >> staging_key.pem
+    - chmod 400 staging_key.pem
+    - ssh -i staging_key.pem -o "StrictHostKeyChecking no" $SERVER_USERNAME@$SERVER_HOST -p $SERVER_PORT "cd review-cosmetic-web-admin && docker-compose pull && docker-compose up -d && sleep 5 && docker image prune -a -f"
+    - export DATE=$(date "+%Y/%m/%d %H:%M:%S")
+    - >
+      curl -X POST -H "Content-Type: application/json" -d '{
+        "content": null,
+        "embeds": [
+          {
+            "title": ":rocket: **Deployment Successful!** :sparkles:",
+            "description": "The application **Review Cosmetic** is now live and ready to shine :white_check_mark:",
+            "color": 15105570,
+            "fields": [
+              {
+                "name": ":computer: Environment",
+                "value": "Staging"
+              },
+              {
+                "name": ":building_construction: Service",
+                "value": "Web Admin"
+              },
+              {
+                "name": ":calendar: Deployed At",
+                "value": "'"$DATE"'"
+              },
+              {
+                "name": ":gear: Commit SHA",
+                "value": "'"$CI_COMMIT_SHA"'"
+              },
+              {
+                "name": ":link: GitLab Pipeline",
+                "value": "[View Pipeline]('"$CI_PIPELINE_URL"')"
+              }
+            ],
+            "image": {
+              "url": "https://iili.io/2M7HnIV.png"
+            },
+            "footer": {
+              "text": "🚀 Powered by unstoppable innovation • Watch it fly! 🔥"
+            }
+          }
+        ]
+      }' $DISCORD_WEBHOOK_URL
+
+  only:
+    - release
+
+build_production:
+  stage: build
+  when: manual
+  tags:
+    - sli
+  environment:
+    name: production
+  services:
+    - docker
+  before_script:
+    - docker --version
+  script:
+    - docker login $REGISTRY_URL -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+    - git clone https://oauth2:$RESOURCE_REPO_TOKEN@$RESOURCE_REPO resource
+    - cp resource/review-cosmetic-web-admin/env-production.env .env
+    - export BUILD_ID=$CI_PIPELINE_ID
+    - docker build --no-cache -t $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID -f ./Dockerfile .
+    - docker tag $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID $REGISTRY_URL/$IMAGE_NAME:production
+    - docker push $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID
+    - docker push $REGISTRY_URL/$IMAGE_NAME:production
+    - docker rmi $REGISTRY_URL/$IMAGE_NAME:$BUILD_ID $REGISTRY_URL/$IMAGE_NAME:production
+  only:
+    - master
+
+deploy_production:
+  stage: deploy
+  when: manual
+  environment:
+    name: production
+  needs:
+    - build_production
+  tags:
+    - sli
+  services:
+    - docker
+    - sshd
+  before_script:
+    - docker --version
+    - ssh -V
+  script:
+    - echo "${SERVER_KEY}" >> production_key.pem
+    - chmod 400 production_key.pem
+    - ssh -i production_key.pem -o "StrictHostKeyChecking no" $SERVER_USERNAME@$SERVER_HOST -p $SERVER_PORT "cd review-cosmetic/review-cosmetic-web-admin && docker-compose pull && docker-compose up -d && sleep 5 && docker image prune -a -f"
+    - export DATE=$(date "+%Y/%m/%d %H:%M:%S")
+    - >
+      curl -X POST -H "Content-Type: application/json" -d '{
+        "content": null,
+        "embeds": [
+          {
+            "title": ":rocket: **Deployment Successful!** :sparkles:",
+            "description": "The application **Review Cosmetic** is now live and ready to shine :white_check_mark:",
+            "color": 15105570,
+            "fields": [
+              {
+                "name": ":computer: Environment",
+                "value": "Production"
+              },
+              {
+                "name": ":building_construction: Service",
+                "value": "Web Admin"
+              },
+              {
+                "name": ":calendar: Deployed At",
+                "value": "'"$DATE"'"
+              },
+              {
+                "name": ":gear: Commit SHA",
+                "value": "'"$CI_COMMIT_SHA"'"
+              },
+              {
+                "name": ":link: GitLab Pipeline",
+                "value": "[View Pipeline]('"$CI_PIPELINE_URL"')"
+              }
+            ],
+            "image": {
+              "url": "https://iili.io/2M7HnIV.png"
+            },
+            "footer": {
+              "text": "🚀 Powered by unstoppable innovation • Watch it fly! 🔥"
+            }
+          }
+        ]
+      }' $DISCORD_WEBHOOK_URL
+
+  only:
+    - master

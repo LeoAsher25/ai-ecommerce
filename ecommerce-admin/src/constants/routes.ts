@@ -1,0 +1,15 @@
+export const APP_ROUTES = {
+  DASHBOARD: '/',
+  LOGIN: '/login',
+  USERS: '/users',
+  PRODUCTS: '/products',
+  PRODUCT_CATEGORIES: '/product-categories',
+  ORDERS: '/orders',
+  SETTINGS: '/settings',
+  PROFILE: '/profile',
+  NOT_FOUND: '/404',
+  FORBIDDEN: '/403',
+  INTERNAL_SERVER_ERROR: '/500',
+  COSMETICS: '/cosmetics',
+  STATIC_PAGES: '/static-pages',
+};

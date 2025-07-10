@@ -1,0 +1,46 @@
+:root {
+  --duration: 0.5s;
+}
+
+.custom-drawer .drawer-overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.custom-drawer .drawer-content {
+  transition: var(--duration);
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.custom-drawer .drawer-content {
+  transform: translate(100%, 0);
+  max-width: 100vw;
+  opacity: 0;
+}
+
+.custom-drawer.active .drawer-overlay {
+  display: block;
+  animation: fadeIn var(--duration) ease-in-out;
+}
+
+.custom-drawer.active .drawer-content {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.custom-drawer .close-icon {
+  z-index: 99999;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

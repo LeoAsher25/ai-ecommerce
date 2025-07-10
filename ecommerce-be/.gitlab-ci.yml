@@ -1,0 +1,48 @@
+image: docker:24.0.5
+
+services:
+  - docker:24.0.5-dind
+
+stages:
+  - build
+  - deploy
+
+variables:
+  DOCKER_TLS_CERTDIR: '/certs'
+  DOCKER_DRIVER: overlay2
+  DOCKER_IMAGE: leoasher/ecommerce-be
+
+before_script:
+  - docker info
+  - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_TOKEN docker.io
+
+# Build stage
+build:
+  stage: build
+  script:
+    - docker pull $DOCKER_IMAGE:latest || true
+    - docker build --cache-from $DOCKER_IMAGE:latest --tag $DOCKER_IMAGE:$CI_COMMIT_SHA .
+    - docker tag $DOCKER_IMAGE:$CI_COMMIT_SHA $DOCKER_IMAGE:latest
+    - docker push $DOCKER_IMAGE:$CI_COMMIT_SHA
+    - docker push $DOCKER_IMAGE:latest
+  only:
+    - main
+    - develop
+
+# Deploy stage
+deploy:
+  stage: deploy
+  only:
+    - main
+  script:
+    - echo "$SSH_PRIVATE_KEY" > id_rsa
+    - chmod 600 id_rsa
+    - ssh -o StrictHostKeyChecking=no -i id_rsa $SSH_USER@$SSH_HOST "
+      cd /opt/ecommerce-system/backend && \
+      git pull origin main && \
+      docker stop ecommerce-be || true && \
+      docker rm ecommerce-be || true && \
+      docker rmi $DOCKER_IMAGE:latest || true && \
+      docker pull $DOCKER_IMAGE:latest && \
+      docker run -d --name ecommerce-be -p 3000:3000 --env-file .env $DOCKER_IMAGE:latest
+      "

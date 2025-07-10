@@ -1,0 +1,44 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["import"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    // Rule related to import
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin", // Import từ Node.js (fs, path, etc.)
+          "external", // Import từ thư viện bên ngoài (react, react-native, axios)
+          "internal", // Import từ alias (@/hooks, @/assets)
+          "parent", // Import từ thư mục cha (../)
+          "sibling", // Import từ thư mục cùng cấp (./Component)
+          "index" // Import từ index file (./)
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "react-native",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "newlines-between": "always", // Thêm dòng trống giữa các nhóm
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
+}

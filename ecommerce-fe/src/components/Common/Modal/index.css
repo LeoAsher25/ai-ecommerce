@@ -1,0 +1,43 @@
+:root {
+  --duration: 0.3s;
+}
+
+.custom-modal .modal-overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.custom-modal .modal-content {
+  transition: var(--duration);
+  z-index: 99999;
+  border-radius: 12px;
+}
+
+.custom-modal .modal-content {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.custom-modal.active .modal-overlay {
+  display: block;
+  animation: fadeIn var(--duration) ease-in-out;
+}
+
+.custom-modal.active .modal-content {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.custom-modal .close-icon {
+  z-index: 99999;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

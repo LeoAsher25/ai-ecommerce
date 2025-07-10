@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # ecommerce-be:
+  #   build: .
+  #   ports:
+  #     - '3000:3000'
+  #   env_file:
+  #     - .env
+  #   restart: always
+  #   depends_on:
+  #     - mongo
+  mongo:
+    image: mongo:6
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: ecommerce
+    volumes:
+      - mongo-data:/data/db
+      - ./db:/docker-entrypoint-initdb.d
+    restart: always
+
+volumes:
+  mongo-data:
