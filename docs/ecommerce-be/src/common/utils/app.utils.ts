@@ -1,4 +1,4 @@
-import { COMMON_CONST } from './../constants/app.constant';
+import { COMMON_CONST } from '../constants/app.constant';
 import { QueryOptions } from 'mongoose';
 
 export default class AppUtils {
