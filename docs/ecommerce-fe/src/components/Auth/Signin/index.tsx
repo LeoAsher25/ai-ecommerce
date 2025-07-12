@@ -57,7 +57,7 @@ const Signin = () => {
       })
 
       if (!response?.ok) {
-        toast.error('Có lỗi xảy ra. Vui lòng thử lại sau')
+        toast.error(response.error)
       }
     } catch (error) {
       handleError(error)
