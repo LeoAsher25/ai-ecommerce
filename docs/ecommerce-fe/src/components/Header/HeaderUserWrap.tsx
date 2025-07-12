@@ -6,12 +6,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import { APP_ROUTES } from '@/constants/routes'
-import { userActions } from '@/redux/features/user-slice'
+import { logoutUser } from '@/redux/features/user-slice'
 import { useAppDispatch, useAppSelector } from '@/redux/store'
 
 const HeaderUserWrap = () => {
   const [dropdownToggler, setDropdownToggler] = useState(false)
-  const { currentUser } = useAppSelector((state) => state.userReducer)
+  const { currentUser } = useAppSelector((state) => state.userReducer as any)
   const router = useRouter()
   const dispatch = useAppDispatch()
   const handleClick = () => {
@@ -21,7 +21,7 @@ const HeaderUserWrap = () => {
   }
 
   const handleLogout = () => {
-    dispatch(userActions.logout())
+    dispatch(logoutUser())
   }
 
   return (

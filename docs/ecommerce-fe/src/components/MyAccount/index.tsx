@@ -1,12 +1,13 @@
 'use client'
 import React, { useState } from 'react'
 
-import Image from '@/components/Common/Image'
-
 import Breadcrumb from '../Common/Breadcrumb'
 import Orders from '../Orders'
 
 import AddressModal from './AddressModal'
+import LogoutTab from './LogoutTab'
+
+import Image from '@/components/Common/Image'
 
 const MyAccount = () => {
   const [activeTab, setActiveTab] = useState('dashboard')
@@ -22,7 +23,7 @@ const MyAccount = () => {
 
   return (
     <>
-      <Breadcrumb title={'My Account'} pages={['my account']} />
+      <Breadcrumb title={'My Account'} items={[{ name: 'my account', path: '/my-account' }]} />
 
       <section className="overflow-hidden py-20 bg-gray-2">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
@@ -700,6 +701,7 @@ const MyAccount = () => {
       </section>
 
       <AddressModal isOpen={addressModal} closeModal={closeAddressModal} />
+      {activeTab === 'logout' && <LogoutTab />}
     </>
   )
 }

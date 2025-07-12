@@ -1,8 +1,8 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import shopData from '@/components/Shop/shopData'
-
 import { RootState } from '../store'
+
+import shopData from '@/components/Shop/shopData'
 
 type InitialState = {
   items: CartItem[]
@@ -44,6 +44,7 @@ export const cart = createSlice({
     },
     removeItemFromCart: (state, action: PayloadAction<string>) => {
       const itemId = action.payload
+      console.log('itemId: ', itemId)
       state.items = state.items.filter((item) => item._id !== itemId)
     },
     updateCartItemQuantity: (state, action: PayloadAction<{ _id: string; quantity: number }>) => {
@@ -58,17 +59,26 @@ export const cart = createSlice({
     removeAllItemsFromCart: (state) => {
       state.items = []
     },
+
+    clearCart: (state) => {
+      state.items = []
+    },
   },
 })
 
-export const selectCartItems = (state: RootState) => state.cartReducer.items
+export const selectCartItems = (state: RootState) => (state.cartReducer as InitialState).items
 
-export const selectTotalPrice = createSelector([selectCartItems], (items) => {
+export const selectTotalPrice = createSelector([selectCartItems], (items: CartItem[]) => {
   return items.reduce((total, item) => {
     return total + item.sellingPrice * item.quantity
   }, 0)
 })
 
-export const { addItemToCart, removeItemFromCart, updateCartItemQuantity, removeAllItemsFromCart } =
-  cart.actions
+export const {
+  addItemToCart,
+  removeItemFromCart,
+  updateCartItemQuantity,
+  removeAllItemsFromCart,
+  clearCart,
+} = cart.actions
 export default cart.reducer

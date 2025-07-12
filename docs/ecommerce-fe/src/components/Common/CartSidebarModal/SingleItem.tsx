@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux'
 
 import Image from '@/components/Common/Image'
 import { AppDispatch, useAppDispatch } from '@/redux/store'
-import { formatPrice } from '@/utils/string'
 import resolveImageUrl from '@/utils/resolveImageUrl'
+import { formatPrice } from '@/utils/string'
 
 const SingleItem = ({ item, removeItemFromCart }) => {
   const dispatch = useAppDispatch()
 
   const handleRemoveFromCart = () => {
-    dispatch(removeItemFromCart(item.id))
+    dispatch(removeItemFromCart(item._id))
   }
 
   return (

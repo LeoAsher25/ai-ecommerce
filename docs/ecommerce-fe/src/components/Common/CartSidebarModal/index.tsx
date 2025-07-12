@@ -3,20 +3,20 @@
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 
+import Drawer from '../Drawer'
+
+import EmptyCart from './EmptyCart'
+import SingleItem from './SingleItem'
+
 import { useCartModalContext } from '@/app/context/CartSidebarModalContext'
 import { APP_ROUTES } from '@/constants/routes'
 import { removeItemFromCart, selectTotalPrice } from '@/redux/features/cart-slice'
 import { useAppSelector } from '@/redux/store'
 import { formatPrice } from '@/utils/string'
 
-import Drawer from '../Drawer'
-
-import EmptyCart from './EmptyCart'
-import SingleItem from './SingleItem'
-
 const CartSidebarModal = () => {
   const { isCartModalOpen, closeCartModal } = useCartModalContext()
-  const cartItems = useAppSelector((state) => state.cartReducer.items)
+  const cartItems = useAppSelector((state) => (state.cartReducer as any).items)
 
   const totalPrice = useSelector(selectTotalPrice)
 

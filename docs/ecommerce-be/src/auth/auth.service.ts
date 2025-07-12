@@ -241,7 +241,6 @@ export class AuthService {
 
   async validateUser(email: string, password: string): Promise<User> {
     const user = await this.userService.findOne({ email }).select('+password');
-    console.log('user: ', user);
 
     if (!user) {
       throw new BadRequestException(MessageWithCodeConstants.EMAIL_IS_NOT_REGISTERED);
