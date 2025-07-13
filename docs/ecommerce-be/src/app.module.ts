@@ -10,6 +10,7 @@ import { OrderModule } from './modules/order/order.module';
 import { DatabaseModule } from './configs/database/database.module';
 import { ImageModule } from './modules/image/image.module';
 import { StaticPageModule } from './modules/static-page/static-page.module';
+import { VNPayModule } from './modules/vnpay/vnpay.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -26,6 +27,7 @@ import { StaticPageModule } from './modules/static-page/static-page.module';
     ProductFeedbackModule,
     OrderModule,
     StaticPageModule,
+    VNPayModule,
   ],
 })
 export class AppModule {}

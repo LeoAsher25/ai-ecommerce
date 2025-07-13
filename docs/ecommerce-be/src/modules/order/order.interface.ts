@@ -2,6 +2,7 @@ export enum EPaymentMethod {
   COD = 'COD',
   MOMO = 'MOMO',
   BANK_TRANSFER = 'BANK_TRANSFER',
+  VNPAY_QR = 'VNPAY_QR',
 }
 
 export interface OrderProduct {
